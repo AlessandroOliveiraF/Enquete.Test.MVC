@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Enquete.Test.MVC.Models.EnqueteTeste>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Enquetes</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p> 
+
+<a href="https://api.whatsapp.com/send?text=https://localhost:7152/Enquete">
+        <img width="25" height="25" src="https://3.bp.blogspot.com/-4MeTuck7SxU/V8QMPiCkmXI/AAAAAAAAF_0/ac7bCEy6CPQbgQet99v_2YKtUSLpRbiFwCLcB/s1600/wts.png" alt="">Compartilhar Enquete!</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Enquete.Test.MVC.Models.EnqueteTeste>
+
+@{
+    ViewData["Title"] = "SelecionaEnquete";
+}
+
+<h1>Selecione a enquete!</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                <a asp-action="ResponderEnquete" asp-route-id="@item.Id">Selecione</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
